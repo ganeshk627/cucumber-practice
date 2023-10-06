@@ -1,0 +1,6 @@
+
+
+Given - precondition
+When - performing action
+And - additonal action
+Then - verification/ assertion/ conclusion
