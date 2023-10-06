@@ -30,13 +30,32 @@ verifydashvoard()
 
 
 //  BDD - Behaviour Driven Development
+Feature:
+    As an user,
+    I want to verify the login module in Homepage.
+    So that I can login as default user “Admin” and password “admin123“.
 
-Description: Verify that users can log in with valid credentials.
-Test Steps:
+Scenario: Verify that users can log in with valid credentials.
 Given navigate to OrangeHRM application
 When enter a valid username 'admin' and password 'admin123'
 And click on the "Login" button
 Then user should be navigated to dashboard
+
+Scenario: Verify that unreigstered user can not log in with valid credentials.
+Given navigate to OrangeHRM application
+When enter a valid username 'admin' and password 'admin123'
+And click on the "Login" button
+Then user should not be navigated to dashboard
+
+Scenario Outline: Verify that users can log in with valid credentials.
+Given navigate to OrangeHRM application
+When enter a valid username 'admin' and password 'admin123'
+And click on the "Login" button
+Then user should be navigated to dashboard
+Examples:
+| username | password |
+| admin    | admin123 |
+| Admin    | admin123 |
 
 
 
