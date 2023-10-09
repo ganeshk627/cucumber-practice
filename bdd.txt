@@ -10,4 +10,5 @@ Then - verification/ assertion/ conclusion
 Feature
 Scenario
 Scenario Outline
+Background
 
