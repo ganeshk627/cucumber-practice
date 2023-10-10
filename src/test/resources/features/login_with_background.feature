@@ -11,9 +11,12 @@ Feature:
     When enter a valid username 'admin' and password 'admin123'
     And click on the "Login" button
     Then user should be navigated to dashboard
+    Then close the application
+
 
   Scenario: Verify that user can't log in with invalid credentials.
 #    Given navigate to OrangeHRM application
     When enter a valid username 'ganesh' and password 'admin@123'
     And click on the "Login" button
     Then user should not be navigated to dashboard
+    Then close the application

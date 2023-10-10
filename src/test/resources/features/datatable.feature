@@ -8,6 +8,7 @@ Feature:
     When enter a valid username '<username>' and password '<password>'
     And click on the "Login" button
     Then user should be navigated to dashboard
+    Then close the application
     Examples:
       | username | password   |
       | admin    | admin123   |
