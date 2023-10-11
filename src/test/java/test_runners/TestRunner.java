@@ -9,18 +9,19 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "classpath:features/login.feature",
         glue = "stepdefinitions",
-        dryRun = true,
+        dryRun = false,
         publish = false,
         plugin = {
                 "pretty",
-                "html:reports/cucumber-report.html"
+                "html:reports/cucumber-report.html",
+                "rerun:failed_scenarios.txt"
         },
-        snippets = CucumberOptions.SnippetType.UNDERSCORE,
+        snippets = CucumberOptions.SnippetType.UNDERSCORE
 //        tags = "@login"
 //        tags = "not @negative"
 //        tags = "@negative and @ganesh"
 //        tags = "@positive or @negative"
-        tags = "@login and not @ganesh"
+//        tags = "@login and not @ganesh"
 
 
 )

@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -38,6 +39,7 @@ public class LoginSteps {
     public void user_should_be_navigated_to_dashboard() {
         if(!dashboardPage.verifyDashboard()) {
             System.out.println("***USER SHOULD BE LOGGED IN***");
+            Assert.fail("***USER SHOULD BE LOGGED IN***");
         }
     }
 
@@ -45,6 +47,7 @@ public class LoginSteps {
     public void user_should_not_be_navigated_to_dashboard() {
         if(dashboardPage.verifyDashboard()) {
             System.out.println("***USER SHOULD NOT BE LOGGED IN***");
+            Assert.fail("***USER SHOULD NOT BE LOGGED IN***");
         }
 
     }
@@ -54,5 +57,37 @@ public class LoginSteps {
         driver.quit();
     }
 
+
+    //// Hooks
+
+    // Feature Hook
+    @BeforeAll
+    public static void beforeFeature() {
+        System.out.println("*****BEFORE FEATURE*****");
+    }
+    @AfterAll
+    public static void afterFeature() {
+        System.out.println("*****AFTER FEATURE*****");
+    }
+
+    // Scenario Hooks
+    @Before
+    public void beforeScenario() {
+        System.out.println("*****BEFORE SCENARIO*****");
+    }
+    @After
+    public void afterScenario() {
+        System.out.println("*****AFTER SCENARIO*****");
+    }
+
+    // Step Hooks
+    @BeforeStep
+    public void beforeEveryStep() {
+        System.out.println("*****BEFORE STEP*****");
+    }
+    @AfterStep
+    public void afterEveryStep() {
+        System.out.println("*****AFTER STEP*****");
+    }
 
 }
